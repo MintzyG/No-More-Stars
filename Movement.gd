@@ -20,3 +20,15 @@ func _physics_process(delta):
 	
 	move_and_slide(velocity)
 	look_at(mouse_position)
+
+
+func _on_Button_pressed():
+	set_physics_process(not is_physics_processing()) # Replace with function body.
+
+func _on_Timer_timeout():
+	visible = not visible
+
+func _ready():
+	var timer = get_node("Timer")
+	timer.connect("timeout", KinematicBody2D, "_on_Button_pressed")
+	
